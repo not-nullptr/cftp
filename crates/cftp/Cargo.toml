@@ -4,6 +4,7 @@ description = "A small, fast and highly customizable FTP server library."
 authors = ["notnullptr"]
 version = "0.1.0"
 edition = "2024"
+readme = "../../README.md"
 
 [features]
 default = ["tls"]

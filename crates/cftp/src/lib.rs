@@ -1,4 +1,4 @@
-#![doc = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/../../README.md"))]
+//! cftp is a small, fast and highly customizable FTP server library.
 
 pub mod code;
 pub mod command;
