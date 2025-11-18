@@ -1,0 +1,19 @@
+[package]
+name = "runner"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tokio = { version = "1.47.0", features = [
+	"rt-multi-thread",
+	"macros",
+	"net",
+	"io-util",
+] }
+chrono = "0.4.42"
+cftp = { path = "../cftp", features = ["tcp"] }
+tracing-subscriber = { version = "0.3.20", features = ["env-filter", "fmt"] }
+anyhow = "1.0.100"
+tracing = "0.1.41"
+thiserror = "2.0.17"
+rcgen = "0.14.5"
