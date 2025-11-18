@@ -296,12 +296,6 @@ where
                 Command::Pasv(_) => {
                     tracing::info!("establishing passive connection");
 
-                    // let Some(passive_conn) = self.handler.passive_conn().await else {
-                    //     tracing::error!("failed to establish passive connection");
-                    //     self.write(Response::simple(SimpleReturnCode::CommandNotImplemented)).await?;
-                    //     continue;
-                    // };
-
                     let passive_conn = match self.handler.passive_conn().await {
                         Ok(conn) => conn,
                         Err(e) => {
@@ -439,7 +433,6 @@ where
 
                 Command::Opts(opts) => {
                     tracing::info!(%opts.options, "received OPTS command");
-                    // For simplicity, we just acknowledge the OPTS command without processing options
                     self.write(FtpResponse::simple(SimpleReturnCode::Ok))
                         .await?;
                 }
@@ -535,7 +528,6 @@ where
 
             MaybeTls::UpgradeBroken => {
                 tracing::error!("TLS upgrade previously failed");
-                // Err("TLS upgrade previously failed".into())
                 Err(TlsUpgradeError::PreviousFailure)
             }
         }
